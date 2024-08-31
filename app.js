@@ -157,7 +157,7 @@ async function fetchExtendedForecast(city) {
                   const forecastIcon = `http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`;
           
                   forecastContainer.innerHTML += `
-                      <div class="p-4 border rounded-lg bg-gray-200 flex-grow mb-4">
+                      <div class="h-60 sm:h-64 p-4 xm:w-32 lg:w-40 xl:w-40 border rounded-lg bg-gray-200 flex-shrink-0 flex-grow-0 mb-4">
                           <p class="font-semibold">${new Date(day.dt_txt).toLocaleDateString()}</p>
                           <img class="w-12 h-12 mx-auto" src="${forecastIcon}" alt="Weather Icon">
                           <p>${day.weather[0].description}</p>
