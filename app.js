@@ -56,7 +56,12 @@ async function fetchWeatherData(city) {
               try {
                   const response = await fetch(`${API_URL}?q=${city}&appid=${API_KEY}&units=metric`);
                   if (!response.ok) {
+                            if(response.status === 400){
                       throw new Error("City not found");
+                  } else {
+                            throw new Error("An error occurred while fetching the data")
+              }
+                 
                   }
                   const data = await response.json();
                   clearError();
@@ -64,7 +69,13 @@ async function fetchWeatherData(city) {
                   updateRecentCities(city);
                   await fetchExtendedForecast(city);
               } catch (error) {
+                            if(error.message === "City not found"){
                   showError("You have entered an invalid city name. Please enter a valid city name.");
+              } else if (error.message === "Failed to fetch"){
+                            showError("Network error. Please check your internet connection.");
+                          } else {
+                            showError("An unexpected error occurred. Please try again later.");
+                          }
               } finally {
                   enableButtons();
               }
