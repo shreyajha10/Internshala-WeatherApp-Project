@@ -1,20 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
               <title>Weather Forecast App</title>
+           
+              <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
- <body class="bg-blue-50">
+<body class="bg-blue-50">
 
-                            <!-- Main Content Section -->
-                            <main class="container mx-auto p-4 flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4">
-                                <!-- Left Sidebar (Search Section) -->
-                                <section class="w-full lg:w-1/3 p-6 bg-white rounded-lg shadow-lg">
-                                    <header class="mb-8">
-                                        <h1 class="text-2xl font-bold text-blue-600">Weather Dashboard</h1>
-                                    </header>
-                        
+              <!-- Main Content Section -->
+              <main class="container mx-auto p-4 flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4">
+                            <!-- Left Sidebar (Search Section) -->
+                            <section class="w-full lg:w-1/3 p-6 bg-white rounded-lg shadow-lg">
+                                          <header class="mb-8">
+                                                        <h1 class="text-2xl font-bold text-blue-600">Weather Dashboard
+                                                        </h1>
+                                          </header>
+                                          <!-- Search Section -->
+                                          <form id="search-form" class="mb-6">
+                                                        <label for="city-input"
+                                                                      class="block mb-2 text-lg font-medium">Enter a
+                                                                      City Name</label>
+                                                        <input id="city-input" class="border p-2 rounded w-full mb-2"
+                                                                      type="text"
+                                                                      placeholder="E.g., Patna, Delhi, Ranchi">
+                                                        <button id="search-btn" type="button"
+                                                                      class="bg-blue-600 text-white p-2 rounded w-full">Search</button>
+                                                        <button id="current-location-btn" type="button"
+                                                                      class="bg-gray-600 text-white p-2 rounded w-full mt-2">Use
+                                                                      Current Location</button>
+                                          </form>
+
+
+                                          <!-- Recent Cities Section -->
+                                          <div class="mt-4">
+                                                        <label for="recent-cities-dropdown"
+                                                                      class="block text-gray-700">Recent Cities:</label>
+                                                        <select id="recent-cities-dropdown"
+                                                                      class="p-2 mt-1 rounded border border-gray-300">
+                                                                      <option value="" disabled selected>Select a city
+                                                                      </option>
+                                                        </select>
+                                          </div>
+                            </section>
+
+                            <!-- Right Content (Weather Data and Forecast) -->
+                            <section class="w-full lg:w-2/3 p-6 bg-white rounded-lg shadow-lg">
+                                          <!-- Weather Information Section -->
+                                          <section id="weather-info" class="bg-blue-100 p-4 rounded-lg mb-6 hidden">
+                                                        <div
+                                                                      class="flex flex-col sm:flex-row justify-between items-center">
+                                                                      <div class="mb-4 sm:mb-0">
+                                                                                    <h2 id="city-name"
+                                                                                                  class="text-2xl font-bold">
+                                                                                    </h2>
+                                                                                    <time id="date"
+                                                                                                  class="text-lg"></time>
+                                                                                    <p id="temperature"
+                                                                                                  class="text-4xl mt-2">
+                                                                                    </p>
+                                                                                    <p id="wind-speed" class="text-lg">
+                                                                                    </p>
+                                                                                    <p id="humidity" class="text-lg">
+                                                                                    </p>
+                                                                      </div>
+                                                                      <div class="flex items-center">
+                                                                                    <img id="weather-icon"
+                                                                                                  class="w-20 h-20"
+                                                                                                  src=""
+                                                                                                  alt="Weather Icon">
+                                                                                    <p id="weather-description"
+                                                                                                  class="text-xl ml-4">
+                                                                                    </p>
+                                                                      </div>
+                                                        </div>
+                                          </section>
+                                          <div id="error-msg" class="hidden text-red-700 mt-2  text-center font-bold">
+                                          </div>
+                                          <!-- 5-Day Forecast Section -->
+                                          <section id="extended-forecast" class="p-4 hidden">
+                                                        <h2 class="text-xl font-bold mb-4">5-Day Forecast</h2>
+                                                        <div
+                                                                      class="flex flex-wrap justify-between space-x-0 sm:space-x-4">
+                                                                      <!-- Forecast cards will be injected here -->
+                                                        </div>
+                                          </section>
+
+                            </section>
+              </main>
+
+
 </body>
+
 </html>
